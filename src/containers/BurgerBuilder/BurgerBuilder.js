@@ -38,11 +38,38 @@ class BurgerBuilder extends Component {
 
     } //addIngredientHandler gets hooked up to the MORE button in BuildControls
 
+    removeIngredientHandler = (type) => {
+        const oldCount = this.state.ingredients[type];
+        if (oldCount <= 0) {
+            return;
+        }
+        const updatedCount = oldCount - 1;
+        const updatedIngredients = {
+            ...this.state.ingredients //since state must be updated in an immutable way
+        }
+        updatedIngredients[type] = updatedCount;
+        const priceDeduction = INGREDIENT_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice - priceDeduction;
+        this.setState({totalPrice: newPrice, ingredients: updatedIngredients})
+    } //this gets hooked up to LESS button in BuildControls
+
     render () {
+        const disabledInfo = {
+            ...this.state.ingredients //copied ingredients object from state ^^^ in an immutable way
+        };
+        for (let key in disabledInfo) {
+            disabledInfo[key] = disabledInfo[key] <= 0 //disabledInfo[key] will return true if it's less than or equal to 0, false otherwise
+        }
+        //{"salad": true, "meat": false, ...}
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients} />
-                <BuildControls ingredientAdded={this.addIngredientHandler} />
+                <BuildControls
+                    ingredientAdded={this.addIngredientHandler}
+                    ingredientRemoved={this.removeIngredientHandler}
+                    disabled={disabledInfo}
+                />
             </Aux>
         );
     }
