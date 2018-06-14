@@ -7,7 +7,7 @@ const initialState = {
         cheese: 0,
         meat: 0 //temp fix
     },
-    totalPrice: 4 //from BurgerBuilder file, the rest are UI
+    totalPrice: 4 //from BurgerBuilder file, the rest there are to do with UI
 };
 
 const INGREDIENT_PRICES = {
