@@ -33,7 +33,7 @@ class App extends Component {
                     <Route path="/checkout" component={Checkout}/>
                     <Route path="/orders" component={Orders}/>
                     <Route path="/logout" component={Logout}/>
-                    <Route path="/auth" component={Auth}/>  /*fixes redirect to front page issue, user can't do harm on Auth page*/
+                    <Route path="/auth" component={Auth}/>  {/*fixes redirect to front page issue, user can't do harm on Auth page*/}
                     <Route path="/" exact component={BurgerBuilder}/>
                     <Redirect to="/" />
                 </Switch>
