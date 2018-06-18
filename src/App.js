@@ -8,6 +8,9 @@ import Orders from './containers/Orders/Orders';
 import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
 
+
+console.log(process.env.REACT_APP_FIREBASE_API_KEY);
+
 class App extends Component {
   render() {
     return (

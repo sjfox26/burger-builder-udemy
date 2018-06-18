@@ -37,7 +37,12 @@ export const checkAuthTimeout = (expirationTime) => {
     };
 };
 
+
+
 export const auth = (email, password, isSignup) => {
+
+    //const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
+
     return dispatch => {
         dispatch(authStart());
         const authData = {
@@ -45,9 +50,9 @@ export const auth = (email, password, isSignup) => {
             password: password,
             returnSecureToken: true
         };
-        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD5yFwbHlwLeZ9rZIwmBswOJqsTiWnwFKs';
+        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + process.env.REACT_APP_FIREBASE_API_KEY;
         if (!isSignup) {
-            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyD5yFwbHlwLeZ9rZIwmBswOJqsTiWnwFKs'
+            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + process.env.REACT_APP_FIREBASE_API_KEY;
         }
         axios.post(url, authData)
             .then(response => {
