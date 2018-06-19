@@ -56,7 +56,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -100,5 +102,8 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage" : "https://sjfox26.github.io/burger-builder-udemy"
+  "homepage": "https://sjfox26.github.io/burger-builder-udemy",
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
+  }
 }
