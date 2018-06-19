@@ -99,5 +99,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "homepage" : "https://sjfox26.github.io/burger-builder-udemy"
 }
