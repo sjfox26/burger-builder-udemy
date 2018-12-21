@@ -53,7 +53,7 @@ export class BurgerBuilder extends Component {
 
     render () {
         const disabledInfo = {
-            ...this.props.ings //copied ingredients object from state ^^^ in an immutable way
+            ...this.props.ings //copied ingredients object from state ^^^ in immutable way
         };
         for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0 //disabledInfo[key] will return true if it's less than or equal to 0, false otherwise
